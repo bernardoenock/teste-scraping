@@ -10,16 +10,16 @@ Ou com sua conta official seguindo a [documentação do mongoDB](https://www.mon
 - `client = MongoClient('<connection-string>')` ou `client = AsyncIOMotorClient('<connection-string>')`
 
 Gerar a pasta venv, caso ela não exista:
-`python3 -m venv venv`
+- `python3 -m venv venv`
 
 Ativar o venv:
-`source venv/bin/activate`
+- `source venv/bin/activate`
 
 Instalar requerimentos:
-`pip install -r requirements.txt`
+- `pip install -r requirements.txt`
 
-Rodar 
-`python main.py`
+Rodar:
+- `python main.py`
 
 
 ## API routes
