@@ -80,7 +80,6 @@ O similarweb, contem diversas informações sobre acessos de website, principais
 Essa API captura todas essas informações 🙂.
 
 Porem é paga. Para fazer o teste gratuito tem que colocar um cartão.
-Não irei fazer isso para fazer um teste tecnico.
 
 Optei por usar a [ferramenta gratuita](https://developers.similarweb.com/docs/digital-rank-api#get-started-with-website-digitalrank-api) para finalizar o teste.
 
