@@ -1,4 +1,6 @@
-## Run
+# Uma API para scraping de dados do SimilarWeb e armazená-los em um banco de dados MongoDB.
+
+## Start Run
 
 Coloque sua API_KEY no .env:
 - `API_KEY="3x3mpl0d3um44p1k31"`
@@ -85,7 +87,7 @@ Optei por usar a [ferramenta gratuita](https://developers.similarweb.com/docs/di
 
 Porem deixei pre configurado caso queiram testar com uma api key paga.
 
-**Tasks:**
+## Tasks:
 
 1. [x] **Desenvolvimento da API:**
     - [x] Implementar uma API que realize scraping de dados de websites listados e armazene as informações no MongoDB.
@@ -95,15 +97,15 @@ Porem deixei pre configurado caso queiram testar com uma api key paga.
     - [x] Se as informações ainda não estiverem disponíveis, deve retornar um código de erro.
     
 
-[x] **Requisitos Técnicos:**
+## Requisitos Técnicos:
 
-## Versão gratuita
+### Versão gratuita
 - [x] As informações a serem salvas incluem: 
   - [x] Classificação;
   - [x] Site;
   - [x] Ranking dos sites mais visitados.
 
-## Versão paga
+### Versão paga
 **Não está testado essa parte, porem de acordo com a [documentação](https://developers.similarweb.com/reference/api-lite), acredito que deva funcionar com uma api key paga:**
 - [x] As informações a serem salvas incluem: 
   - [x] Classificação;
@@ -121,7 +123,7 @@ Porem deixei pre configurado caso queiram testar com uma api key paga.
 - [x] [Ponto Extra] A API deve ser assíncrona, retornando um código 201 com um ID para verificação posterior do status da operação.
 - [x] [Ponto Extra] Não utilizar Selenium, Playwright, Cypress ou qualquer outro automatizador de navegador para o scraping.
 
-**Critérios:**
+## Critérios:
 
 - [x] **Funcionalidade:** Capacidade de salvar informações conforme especificado.
 - [x] **Eficiência:** Implementação de uma API assíncrona com retorno de status adequado.
