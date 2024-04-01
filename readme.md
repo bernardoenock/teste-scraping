@@ -90,8 +90,8 @@ Porem deixei pre configurado caso queiram testar com uma api key paga.
 1. [x] **Desenvolvimento da API:**
     - [x] Implementar uma API que realize scraping de dados de websites listados e armazene as informações no MongoDB.
 2. [x] **Endpoints da API:**
-    - [x]**`POST /salve_info`**: Este endpoint deve receber uma URL de um site, realizar o scraping dos dados no SimilarWeb e salvar as informações no MongoDB.
-    - [x]**`POST /get_info`**: Este endpoint deve receber uma URL, buscar as informações do site no banco de dados e retorná-las. 
+    - [x] **`POST /salve_info`**: Este endpoint deve receber uma URL de um site, realizar o scraping dos dados no SimilarWeb e salvar as informações no MongoDB.
+    - [x] **`POST /get_info`**: Este endpoint deve receber uma URL, buscar as informações do site no banco de dados e retorná-las. 
     - [x] Se as informações ainda não estiverem disponíveis, deve retornar um código de erro.
     
 
