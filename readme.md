@@ -3,20 +3,26 @@
 Coloque sua API_KEY no .env:
 - `API_KEY="3x3mpl0d3um44p1k31"`
 
+
 Rodar o banco mongoDB com docker:
 - `docker run --name mongodb -d -p 27017:27017 mongo`
+
 Ou com sua conta official seguindo a [documentação do mongoDB](https://www.mongodb.com/docs/atlas/tutorial/connect-to-your-cluster/):
 - `from pymongo import MongoClient`
 - `client = MongoClient('<connection-string>')` ou `client = AsyncIOMotorClient('<connection-string>')`
 
+
 Gerar a pasta venv, caso ela não exista:
 - `python3 -m venv venv`
+
 
 Ativar o venv:
 - `source venv/bin/activate`
 
+
 Instalar requerimentos:
 - `pip install -r requirements.txt`
+
 
 Rodar:
 - `python main.py`
