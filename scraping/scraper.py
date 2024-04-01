@@ -1,53 +1,72 @@
-import aiohttp
+import os
 import requests
-from bs4 import BeautifulSoup
+import aiohttp
+from dotenv import load_dotenv
 
-async def fetch_html(url, api_key=None):
-    headers = {}
-    if api_key:
-        headers['x-api-key'] = api_key
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
+
+async def scrape_similarweb_data(url):
+    api_key = API_KEY
+    api_url = f"https://api.similarweb.com/v1/similar-rank/{url}/rank?api_key={api_key}"
 
     async with aiohttp.ClientSession() as session:
-        async with session.get(url, headers=headers) as response:
-            return await response.text()
-        
-# async def scrape_similarweb_data(url):
-#     html = await fetch_html(f'https://www.similarweb.com/pt/website/{url}')
-#     soup = BeautifulSoup(html, 'html.parser')
+        async with session.get(api_url) as response:
+            if response.status == 200:
+                data = await response.json()
+                if isinstance(data, dict):
+                    return data
+                else:
+                    print("Resposta da API do SimilarWeb não está no formato esperado.")
+                    return None
+            else:
+                print("Erro ao solicitar dados do SimilarWeb:", response.status)
+                print(response)
+                return None
 
-#     print(soup)
 
-#     data = {
-#         'url': url,
-#         'ranking': None,
-#         'category': None,
-#         'change_in_ranking': None,
-#         'average_visit_duration': None,
-#         'pages_per_visit': None,
-#         'bounce_rate': None,
-#         'top_countries': None,
-#         'gender_distribution': None,
-#         'age_distribution': None
-#     }
+async def scrape_similarweb_top_rank():
+    api_key = API_KEY
+    api_url = f"https://api.similarweb.com/v1/similar-rank/top-sites?api_key={api_key}&limit={50}"
     
-#     ranking_elem = soup.find('div', class_='wa-rank-list__item wa-rank-list__item--global')
+    async with aiohttp.ClientSession() as session:
+        async with session.get(api_url) as response:
+            if response.status == 200:
+                data = await response.json()
+                if isinstance(data, dict):
+                    return data
+                else:
+                    print("Resposta da API do SimilarWeb não está no formato esperado.")
+                    return None
+            else:
+                print("Erro ao solicitar dados do SimilarWeb:", response.status)
+                print(response)
+                return None
+            
+
+# SIMILARWEB PRO
+
+async def scrape_similarweb_general_data_pro(url):
+    api_key = API_KEY
+    api_url = f"https://api.similarweb.com/v1/website/{url}/general-data/all?api_key={api_key}&format=json"
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(api_url) as response:
+            if response.status == 200:
+                data = await response.json()
+                if isinstance(data, dict):
+                    return data
+                else:
+                    print("Resposta da API do SimilarWeb não está no formato esperado.")
+                    return None
+            else:
+                print("Erro ao solicitar dados do SimilarWeb:", response.status)
+                print(response)
+                return None
+
+async def scrape_similarweb_traffic_and_engagement_pro(url):
     
-#     if ranking_elem:
-#         data['ranking'] = ranking_elem.text.strip()
-    
-#     category_elem = soup.find('span', class_='category')
-#     if category_elem:
-#         data['category'] = category_elem.text.strip()
-    
-#     change_elem = soup.find('span', class_='change-in-ranking')
-#     if change_elem:
-#         data['change_in_ranking'] = change_elem.text.strip()
-    
-#     return data
-    
-async def scrape_similarweb_data(url):
-    
-    api_key = '364f1390bf3b4055b2559567c2a8ce1b'
+    api_key = API_KEY
 
     api_url = "https://api.similarweb.com/v3/batch/traffic_and_engagement/request-report"
 
